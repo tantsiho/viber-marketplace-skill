@@ -1,0 +1,38 @@
+# 多賣家電商平台開發藍圖
+
+針對台灣／華語市場的多賣家電商平台（類似蝦皮風格）的架構與實作指南，適合從零自刻或小團隊開發。  
+技術棧：Next.js App Router + Prisma + PostgreSQL + Auth.js。
+
+## 為什麼有這份藍圖
+
+Cursor、Claude 這類 AI 很愛「自己手刻」電商後台，但實務上常漏掉關鍵細節：  
+商品沒有草稿／下架、賣家 query 沒綁 `sellerId` 導致越權、買家／賣家／admin 後台混在一起、沒有審核流程……  
+這份藍圖就是把這些「AI 常不懂的細節」寫清楚，讓手刻出來的架構一次到位，而不是事後才補洞。
+
+## 檔案說明
+
+| 檔案 | 用途 |
+|------|------|
+| **ecommerce-platform-skill.md** | 完整藍圖：含詳細說明、完整程式碼片段、資料夾結構、痛點對應表。可直接當文件閱讀或給 AI 當 context。 |
+| **電商安全架構2026.md** | 安全架構總覽：Zero Trust、OWASP、PCI DSS 4.0.1、台灣個資法、CSP/headers、MFA、金流與賣家審核、電商專屬風險表與檢查清單。手刻時一併參考，避免安全漏洞。 |
+| **SKILL.md** | Cursor 用 skill 格式（YAML frontmatter + 精簡版）。若要裝進 Cursor，把此檔放到 `.cursor/skills/` 或依 Cursor 文件匯入即可。 |
+
+架構與權限看完整藍圖＋SKILL；**安全與合規**看電商安全架構。一般人改寫、參考用「完整藍圖＋安全架構」即可，用 Cursor 的可以多帶 SKILL.md。
+
+## 誰適合用
+
+- 要自己做多賣家 marketplace（買家／賣家／平台 admin 分離）
+- 想避免：沒草稿、沒下架、後台亂、權限混、賣家越權看到別人資料、安全與合規漏做
+- 技術選型偏 Next.js 15+、Prisma、Auth.js、Tailwind / shadcn
+
+## 怎麼用／怎麼改
+
+- **直接用**：照藍圖的資料模型、資料夾結構、RBAC 範例實作。
+- **自己改**：Fork 或下載後，依自家需求改技術棧、欄位、流程；歡迎保留出處。
+- **給 AI 用**：把 `ecommerce-platform-skill.md` 與 `電商安全架構2026.md` 一併貼進對話或當專案文件，讓 AI 依藍圖生成或重構程式，補上它常漏的細節（草稿／下架、越權防護、後台分離、審核流程、CSP／MFA／個資法等安全措施）。
+
+## License
+
+MIT License。歡迎 fork、改寫、PR、star；若對你有幫助，可於 repo 或文件內 mention 出處。
+
+**作者**：美術數膠｜Fine Art Digital Plastic (@psrmidi)
